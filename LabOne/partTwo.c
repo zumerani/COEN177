@@ -3,33 +3,22 @@
 #include<unistd.h>
 #include<string.h>
 
-/* Globals */
-static int childCounter = 0;
-static int x = 1;
-static int doOnce = 0;
+void spawn() {
 
-void test( int number ) {
+	printf("Main Process is: %d\n" , getpid() );
 
 	int i;
+	int pid;
 	for( i = 0 ; i < 7 ; i++ ) {
-		//printf("PID is %d\n" , getpid() );
-		int pid;
 		if( ( pid = fork() ) != 0 ) {
-			//printf("i is %d ... PID is %d\n" , i , getpid() );
-			//printf("I am about to wait.\n");
 			wait(NULL);
-			//printf("Hey I'm back ... childCounter is %d\n" , childCounter);
-			break;
+			break; /* Enforces the parents not to go through the rest of the for loop. */
 		} else {
-			//printf("i is %d ... PID is %d\n" , i , getpid() );
-			printf("Child is %d ... Parent is %d ... i is %d\n" , getpid() , getppid() , i );
-			childCounter++;
-
-			//printf("childCounter is %d\n" , childCounter);
+			printf("Child is %d ... Parent is %d\n" , getpid() , getppid() );
 		}
 	}
 }
 
 int main() {
-	test(0);
+	spawn();
 }
