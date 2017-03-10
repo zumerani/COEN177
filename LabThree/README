@@ -1,0 +1,11 @@
+Author: Zain Umerani
+
+COEN 177 Lab Assignment Three - Page Replacement Algorithms
+
+Algorithms Implemented: LRU, LFU, Second Chance, Random
+
+Description:
+
+There are two folders: 'testWithCharacters' and 'testWithoutCharacters'. The first folder has 'numbers.txt' with trailing characters and other random characters (non-numeric); therefore, in my algorithms I have a small implementation that handles that. The respective counts (lru, lfu, and sc) are also in that folder. For the second folder ('testWithoutCharacters'), it has the 'numbers.txt' that do not have trailing characters along with their respective count files. For this lab, I created a custom deque labled 'deque.cpp'. The methods defined in 'deque.cpp' are used in the algorithms.
+
+Usage: I have created a makefile for each folder. Simply type 'make' to generate the executables. I have also created a 'test.sh' file which runs 'test_one.sh' with each executable (lru, lfu, sc, and random). 'random' is run through a script I created called 'random.sh'.
